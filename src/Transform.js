@@ -48,6 +48,7 @@ export default class Transform extends React.Component {
 
     return (
       <div className={`${classPrefix}-transform`} 
+           onTouchStart={open && translateEnabled ? this.handleTranslation : null}
            onMouseDown={open && translateEnabled ? this.handleTranslation : null}>
         
         <div className={`${classPrefix}-transform__content`} style={elementStyle}>
@@ -60,10 +61,11 @@ export default class Transform extends React.Component {
             <ScalePoint key={position} 
                         position={position} 
                         classPrefix={classPrefix} 
+                        onTouchStart={(event) => this.handleScale(position, event)}
                         onMouseDown={(event) => this.handleScale(position, event)} />
           )}
 
-          {rotateEnabled && <Rotator onMouseDown={this.handleRotation} 
+          {rotateEnabled && <Rotator onTouchStart={this.handleRotation} onMouseDown={this.handleRotation} 
                                      classPrefix={classPrefix} />}
         </div>}
       </div>
