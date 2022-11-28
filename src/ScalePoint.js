@@ -10,6 +10,7 @@ const POSITIONING = {
 const ScalePoint = ({ onMouseDown, classPrefix, position, styles }) => (
   <div
     className={`${classPrefix}-transform__scale-point ${classPrefix}-transform__scale-point--${position}`}
+    onTouchStart={onMouseDown}
     onMouseDown={onMouseDown}
     style={{
         position: 'absolute',
