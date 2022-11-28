@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 const Rotator = ({ onMouseDown, classPrefix, styles }) => (
   <div
     className={`${classPrefix}-transform__rotator`}
+    onTouchStart={onMouseDown}
     onMouseDown={onMouseDown}
     style={{
         position: 'absolute',
